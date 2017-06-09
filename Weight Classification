@@ -1,0 +1,20 @@
+weight_loop<-for(i in 1:15)
+  if ( weights$Weight>=250) {
+  print("obese")
+} else if ( weights$Weight>=200) {
+  print("overweight")
+} else if ( weights$Weight>=150) {
+  print("normal")
+} else
+  print("underweight")
+
+attach(weights)
+
+ggplot(data=weights, aes(x=Age, y=Weight, fill="red")) + 
+  geom_bar(colour="blue", fill="#DD8888", width=.8, stat="identity") + 
+  guides(fill=FALSE) +
+  xlab("Age Group") + ylab("Avg Weight") +
+  ggtitle("Weights per age group")
+
+
+weights<-read_csv("/Users/trevorsipos/Desktop/Weights.csv")
